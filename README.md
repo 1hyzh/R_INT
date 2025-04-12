@@ -5,5 +5,5 @@ It has a built in script executor,
 yeah execute scripts from scrips.
 
 ```lua
-loadstring(game:HttpGet(“https://raw.githubusercontent.com/1hyzh/R_INT/refs/heads/main/script.lua”))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/1hyzh/R_INT/refs/heads/main/script.lua"))()
 ```
