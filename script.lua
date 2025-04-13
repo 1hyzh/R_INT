@@ -174,3 +174,7 @@ end)
 local Button2 = Tab4:NewButton("CMD-X", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/refs/heads/master/Source"))()
 end)
+
+local Button3 = Tab4:NewButton("SimpleSpy", function()
+    loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
+end)
