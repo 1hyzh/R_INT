@@ -158,3 +158,19 @@ local Button2 = Tab3:NewButton("Check", function()
         Notif:Notify("user found", 3, "information")    
     end
 end)
+
+--[[
+
+TAB 4, Other utility scripts.
+
+]]--
+
+local Tab4 = Init:NewTab("Utility Scripts")
+
+local Button1 = Tab4:NewButton("Infinite yield", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/refs/heads/master/source"))()
+end)
+
+local Button2 = Tab4:NewButton("CMD-X", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/refs/heads/master/Source"))()
+end)
