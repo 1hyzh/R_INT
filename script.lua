@@ -25,7 +25,7 @@ library.rank = "developer"
 local Wm = library:Watermark("R_INT | v" .. library.version ..  " | " .. library:GetUsername() .. " | rank: " .. library.rank)
 local FpsWm = Wm:AddWatermark("fps: " .. library.fps)
 coroutine.wrap(function()
-    while task.task.wait(.75) do
+    while task.wait(.75) do
         FpsWm:Text("fps: " .. library.fps)
     end
 end)()
