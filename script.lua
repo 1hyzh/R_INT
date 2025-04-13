@@ -33,7 +33,7 @@ end)()
 local Notif = library:InitNotifications()
 
 library:Introduction()
-wait(1)
+task.wait(1)
 local Init = library:Init()
 
 --[[
