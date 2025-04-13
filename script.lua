@@ -33,7 +33,7 @@ end)()
 local Notif = library:InitNotifications()
 
 library:Introduction()
-task.wait(1)
+wait(1)
 local Init = library:Init()
 
 --[[
@@ -51,7 +51,7 @@ local Button1 = Tab1:NewButton("Loop health", function()
       print(game.Players.LocalPlayer.Character.Humanoid.Health)
       sh = sh + 1
       print(sh)
-      task.wait(0.001)
+      wait(0.001)
    end
 end)
 local Button2 = Tab1:NewButton("Kill Yourself", function()
@@ -103,7 +103,7 @@ local Button6 = Tab1:NewButton("Loop WalkSpeed", function ()
     local count = 0
     while count <= 99999 do
         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = WalkSpeed_New
-        task.wait(0.01)
+        wait(0.01)
         print(WalkSpeed_New)
     end
 end)
@@ -112,7 +112,7 @@ local Button7 = Tab1:NewButton("Loop JumpPower", function ()
     while count <= 99999 do
         game.Players.LocalPlayer.Character.Humanoid.JumpHeight = JumpPower_New
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = JumpPower_New
-        task.wait(0.01)
+        wait(0.01)
         print(JumpPower_New)
     end
 end)
