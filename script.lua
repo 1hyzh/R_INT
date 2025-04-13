@@ -1,9 +1,3 @@
-local InitMessage = Instance.New("Message")
-
-InitMessage.Text = "Loading R_INT task.wait..."
-task.wait(1)
-InitMessage:Destroy()
-
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Consistt/Ui/main/UnLeaked"))()
 
 
