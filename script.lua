@@ -1,7 +1,7 @@
 local InitMessage = Instance.New("Message")
 
-InitMessage.Text = "Loading R_INT wait..."
-wait(1)
+InitMessage.Text = "Loading R_INT task.wait..."
+task.task.wait(1)
 InitMessage:Destroy()
 
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Consistt/Ui/main/UnLeaked"))()
@@ -31,7 +31,7 @@ library.rank = "developer"
 local Wm = library:Watermark("R_INT | v" .. library.version ..  " | " .. library:GetUsername() .. " | rank: " .. library.rank)
 local FpsWm = Wm:AddWatermark("fps: " .. library.fps)
 coroutine.wrap(function()
-    while wait(.75) do
+    while task.task.wait(.75) do
         FpsWm:Text("fps: " .. library.fps)
     end
 end)()
@@ -39,7 +39,7 @@ end)()
 local Notif = library:InitNotifications()
 
 library:Introduction()
-wait(1)
+task.wait(1)
 local Init = library:Init()
 
 --[[
@@ -57,7 +57,7 @@ local Button1 = Tab1:NewButton("Loop health", function()
       print(game.Players.LocalPlayer.Character.Humanoid.Health)
       sh = sh + 1
       print(sh)
-      wait(0.001)
+      task.wait(0.001)
    end
 end)
 local Button2 = Tab1:NewButton("Kill Yourself", function()
@@ -109,7 +109,7 @@ local Button6 = Tab1:NewButton("Loop WalkSpeed", function ()
     local count = 0
     while count <= 99999 do
         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = WalkSpeed_New
-        wait(0.01)
+        task.wait(0.01)
         print(WalkSpeed_New)
     end
 end)
@@ -118,7 +118,7 @@ local Button7 = Tab1:NewButton("Loop JumpPower", function ()
     while count <= 99999 do
         game.Players.LocalPlayer.Character.Humanoid.JumpHeight = JumpPower_New
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = JumpPower_New
-        wait(0.01)
+        task.wait(0.01)
         print(JumpPower_New)
     end
 end)
