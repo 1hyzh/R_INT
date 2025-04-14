@@ -5,7 +5,7 @@ It has a built in script executor,
 yeah execute scripts from scrips.
 
 ```lua
-loadstring(game:HttpGet("https://raw.githubusercontent.com/1hyzh/R_INT/refs/heads/main/script.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/1hyzh/R_INT/refs/heads/main/loader.lua"))()
 ```
 
 ###BETA VERSION
@@ -14,4 +14,17 @@ The beta version has an user interface made from stratch, probably helping with 
 
 ```lua
 loadstring(game:HttpGet("https://raw.githubusercontent.com/1hyzh/R_INT/refs/heads/main/beta.lua"))()
+```
+
+###FORCE MOBILE UI
+
+```lua
+loadstring(game:HttpGet("https://raw.githubusercontent.com/1hyzh/R_INT/refs/heads/main/mobile.lua"))()
+```
+
+
+###FORCE PC UI
+
+```lua
+loadstring(game:HttpGet("https://raw.githubusercontent.com/1hyzh/R_INT/refs/heads/main/pc.lua"))()
 ```
