@@ -18,6 +18,13 @@ local function isPlayerInGame(userId)
     return false
 end
 
+local function showMessage(Message)
+    local Message = Instance.new("Message")
+    Message.Text = Message
+    task.wait(0.5)
+    Message:Destroy()
+end
+
 
 
 
