@@ -3,9 +3,10 @@ local UserInputService = game:GetService("UserInputService")
 
 local player = Players.LocalPlayer
 
-local function showMessage(Message)
+local function showMessage(txt)
     local Message = Instance.new("Message")
-    Message.Text = Message
+    Message.Parent = game.Workspace
+    Message.Text = txt
     task.wait(2)
     Message:Destroy()
 end
