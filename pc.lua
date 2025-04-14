@@ -6,6 +6,8 @@ local SCRtoEXEC = ""
 local UserToSearch = 0
 local WalkSpeed_New = 16
 local JumpPower_New = 50
+local doorsfakeknobs = 0
+local doorsfakegold = 0
 
 
 --Script Functions
@@ -153,7 +155,7 @@ local Label1 = Tab3:NewLabel("Check if an user is on the same server as you!", "
 
 
 local Textbox3 = Tab3:NewTextbox("Paste UserID here.", "", "userID", "all", "small", true, false, function(val)
-    UserToSearch = UserToSearch + val
+    UserToSearch = val
 end)
 local Button2 = Tab3:NewButton("Check", function()
     if isPlayerInGame(UserToSearch) then
@@ -180,3 +182,30 @@ end)
 local Button3 = Tab4:NewButton("SimpleSpy", function()
     loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
 end)
+
+--[[
+
+TAB 5, Door only things, currently almost nothing so...
+
+]]--
+
+if game.PlaceId == 6839171747 then
+    local Tab5 = Init:NewTab("Doors")
+    local Textbox3 = Tab5:NewTextbox("fake knobs", "", "knobs", "all", "small", true, false, function(val)
+    doorsfakeknobs = val
+    end)
+    local Button2 = Tab5:NewButton("Fake!", function()
+        game:GetService("ReplicatedStorage").ReplicaDataModule.KnobsUpdated:Fire(doorsfakeknobs)
+    end)
+    local Textbox = Tab5:NewTextbox(" fake gold", game:GetService("Players").LocalPlayer.PlayerGui.TopbarUI.Topbar.StatsTopbarHandler.StatModules.Gold.Gold, "gold", "all", "small", true, false, function(val)
+    doorsfakegold = val
+    end)
+    local Button = Tab5:NewButton("Fake!", function()
+        game:GetService("Players").LocalPlayer.PlayerGui.TopbarUI.Topbar.StatsTopbarHandler.StatModules.Gold.Gold:Fire(doorsfakegold)
+    end)
+    
+    local Toggle1 = Tab5:NewToggle("force crouch", false, function(value)
+        print(value)
+        game:GetService("ReplicatedStorage").RemotesFolder.Crouch:FireServer(value)
+    end)
+end
