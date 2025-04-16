@@ -127,7 +127,7 @@ local Button7 = Tab1:NewButton("Loop JumpPower", function ()
     end
 end)
 
-local Button8 = Tab1:NewButton("Reload script", function()
+local _Button = Tab1:NewButton("Reload Script", function ()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/1hyzh/R_INT/refs/heads/main/pc.lua"))()
 end)
 
