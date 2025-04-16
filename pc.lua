@@ -187,6 +187,13 @@ local Button3 = Tab4:NewButton("SimpleSpy", function()
     loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
 end)
 
+if game.PlaceId == 6839171747 then
+    local Button4 = Tab4:NewButton("BobHub", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/DarkDoorsKing/DoorsCode/main/main"))()
+        
+    end)
+end
+
 --[[
 
 TAB 5, Door only things, currently almost nothing so...
