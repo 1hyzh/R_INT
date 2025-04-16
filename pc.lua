@@ -209,45 +209,48 @@ if game.PlaceId == 6839171747 then
         end)
     
     local Toggle1 = Tab5:NewToggle("force crouch", false, function(value)
-        print(value)
-        game:GetService("ReplicatedStorage").RemotesFolder.Crouch:FireServer(value)
+        while value == true do
+            game:GetService("ReplicatedStorage").RemotesFolder.Crouch:FireServer(true)
+            wait(3)
+        end
+        if value == false then
+            game:GetService("ReplicatedStorage").RemotesFolder.Crouch:FireServer(false)
+        end        
     end)
-
-    local Button3 = Tab5:NewButton("Force open door", function()
-        game:GetService("ReplicatedStorage").RemotesFolder.DoorOpen:FireServer()
-    end):AddKeybind(Enum.KeyCode.LeftControl)
-    local Button4 = Tab5:NewButton("Force open closet", function()
-        game:GetService("ReplicatedStorage").RemotesFolder.ClosetOpen:FireServer()
-    end)
-    local Button5 = Tab5:NewButton("Force open drawer", function()
-        game:GetService("ReplicatedStorage").RemotesFolder.DrawerOpen:FireServer()
-    end)
-    local Button6 = Tab5:NewButton("Force open locker", function()
-        game:GetService("ReplicatedStorage").RemotesFolder.LockerOpen:FireServer()
-    end)
-    local Button7 = Tab5:NewButton("Force open vent", function()
-        game:GetService("ReplicatedStorage").RemotesFolder.VentOpen:FireServer()
+    local Toggle2 = Tab5:NewToggle("butter hands", false, function(value)
+        while value == true do
+            game:GetService("ReplicatedStorage").RemotesFolder.DropItem:FireServer()
+            task.wait(2)
+        end
     end)
     --Door ESP
-    local Toggle2 = Tab5:NewToggle("Door ESP", false, function(value)
-        if value then
-            for _, door in pairs(workspace:GetDescendants()) do
-                if door:IsA("MeshPart") and door.Name == "Door" then
-                    local highlight = Instance.new("Highlight")
-                    highlight.Parent = door
-                    highlight.FillColor = Color3.fromRGB(255, 0, 0)
-                    highlight.OutlineColor = Color3.fromRGB(255, 0, 0)
+    local Toggle3 = Tab5:NewToggle("Door ESP", false, function(value)
+            if value then
+                for _, group in pairs(workspace:GetChildren()) do
+                    if group:IsA("Model") and tonumber(group.Name) then -- Check if the group is named numerically
+                        for _, door in pairs(group:GetDescendants()) do
+                            if door:IsA("MeshPart") and door.Name == "Door" then
+                                local highlight = Instance.new("Highlight")
+                                highlight.Parent = door
+                                highlight.FillColor = Color3.fromRGB(255, 0, 0)
+                                highlight.OutlineColor = Color3.fromRGB(255, 0, 0)
+                            end
+                        end
+                    end
                 end
-            end
-        else
-            for _, door in pairs(workspace:GetDescendants()) do
-                if door:IsA("MeshPart") and door.Name == "Door" then
-                    local highlight = door:FindFirstChildOfClass("Highlight")
-                    if highlight then
-                        highlight:Destroy()
+            else
+                for _, group in pairs(workspace:GetChildren()) do
+                    if group:IsA("Model") and tonumber(group.Name) then -- Check if the group is named numerically
+                        for _, door in pairs(group:GetDescendants()) do
+                            if door:IsA("MeshPart") and door.Name == "Door" then
+                                local highlight = door:FindFirstChildOfClass("Highlight")
+                                if highlight then
+                                    highlight:Destroy()
+                                end
+                            end
+                        end
                     end
                 end
             end
-        end
-    end)
-end
+        end)
+    end
