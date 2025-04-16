@@ -127,6 +127,10 @@ local Button7 = Tab1:NewButton("Loop JumpPower", function ()
     end
 end)
 
+local Button8 = Tab1:NewButton("Reload script", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/1hyzh/R_INT/refs/heads/main/pc.lua"))()
+end)
+
 --[[
 
 TAB 2, Script Executor, so you don't have to hop off roblox to execute another script
