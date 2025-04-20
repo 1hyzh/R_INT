@@ -216,43 +216,76 @@ if game.PlaceId == 6839171747 then
         end)
     
     local Toggle1 = Tab5:NewToggle("force crouch", false, function(value)
+        local vl = false
         if value == true then
-            vl == true
+            vl = true
             while vl == true do
                 game:GetService("ReplicatedStorage").RemotesFolder.Crouch:FireServer(true)
-                task.wait(0.1)
+                wait(3)
             end
         end
         if value == false then
-            vl == false
             game:GetService("ReplicatedStorage").RemotesFolder.Crouch:FireServer(false)
-        end        
+            vl = false
+        end               
     end)
     local Toggle2 = Tab5:NewToggle("butter hands", false, function(value)
-        local vl == false
+        local vl = false
         if value == true then
-            vl == true
+            vl = true
             while vl == true do
                 game:GetService("ReplicatedStorage").RemotesFolder.DropItem:FireServer()
                 task.wait(2)
             end
         end
         if value == false then
-            vl == false
+            vl = false
         end
-
-    local Toggle3 = Tab5:NewToggle("Door reach", false, function(value)
-        local vl == false
-        if value == true then
-            vl == true
-            while vl == true do
-                game.Workspace.CurrentRooms["0"].Door.ClientOpen:FireServer()
-                task.wait(0.1)
-            end
-        end
-        if value == false then
-            vl == false
-        end        
     end)
     --Door ESP
+    local Toggle3 = Tab5:NewToggle("Door ESP", false, function(value)
+            if value then
+                for _, group in pairs(workspace:GetChildren()) do
+                    if group:IsA("Model") and tonumber(group.Name) then -- Check if the group is named numerically
+                        for _, door in pairs(group:GetDescendants()) do
+                            if door:IsA("MeshPart") and door.Name == "Door" then
+                                local highlight = Instance.new("Highlight")
+                                highlight.Parent = door
+                                highlight.FillColor = Color3.fromRGB(255, 0, 0)
+                                highlight.OutlineColor = Color3.fromRGB(255, 0, 0)
+                            end
+                        end
+                    end
+                end
+            else
+                for _, group in pairs(workspace:GetChildren()) do
+                    if group:IsA("Model") and tonumber(group.Name) then -- Check if the group is named numerically
+                        for _, door in pairs(group:GetDescendants()) do
+                            if door:IsA("MeshPart") and door.Name == "Door" then
+                                local highlight = door:FindFirstChildOfClass("Highlight")
+                                if highlight then
+                                    highlight:Destroy()
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end)
+
+        local Toggle4 = Tab5:NewToggle("Door reach", false, function(value)
+            local vl = false
+            if value == true then
+                vl = true
+                while vl == true do
+                    game.Workspace.CurrentRooms["0"].Door.ClientOpen:FireServer()
+                    task.wait(0.1)
+                end
+            end
+            if value == false then
+                vl = false
+            end        
+        end)
+
+    end
     
