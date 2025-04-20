@@ -277,7 +277,7 @@ if game.PlaceId == 6839171747 then
              vl = true
                 while vl == true do
                     game.Workspace.CurrentRooms["0"].Door.ClientOpen:FireServer()
-                    task.wait(000.1)
+                    task.wait(0.001)
                 end
         end)
         local Button62 = Tab5:NewButton("Door Reach: Disable", function()
