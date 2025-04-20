@@ -241,8 +241,18 @@ if game.PlaceId == 6839171747 then
             vl == false
         end
 
-        
-        
+    local Toggle3 = Tab5:NewToggle("Door reach", false, function(value)
+        local vl == false
+        if value == true then
+            vl == true
+            while vl == true do
+                game.Workspace.CurrentRooms["0"].Door.ClientOpen:FireServer()
+                task.wait(0.1)
+            end
+        end
+        if value == false then
+            vl == false
+        end        
     end)
     --Door ESP
     
