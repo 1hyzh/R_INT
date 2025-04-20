@@ -272,19 +272,20 @@ if game.PlaceId == 6839171747 then
                 end
             end
         end)
-
-        local Toggle4 = Tab5:NewToggle("Door reach", false, function(value)
-            local vl = false
-            if value == true then
-                vl = true
+        local vl = false
+        local Button69 = Tab5:NewButton("Fake Door", function()
+             vl = true
                 while vl == true do
                     game.Workspace.CurrentRooms["0"].Door.ClientOpen:FireServer()
                     task.wait(0.1)
                 end
-            end
-            if value == false then
-                vl = false
-            end        
+        end)
+        local Button62 = Tab5:NewButton("Fake Door", function()
+            
+                while vl == true do
+                    game.Workspace.CurrentRooms["0"].Door.ClientOpen:FireServer()
+                    task.wait(0.1)
+                end
         end)
 
     end
